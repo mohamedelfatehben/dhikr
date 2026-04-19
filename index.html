@@ -27,7 +27,6 @@
 
         .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
         
-        /* Header Styling */
         header { 
             display: flex; 
             justify-content: space-between; 
@@ -37,21 +36,11 @@
         }
 
         .app-name { font-size: 2.2rem; font-family: var(--font-ar); font-weight: 700; white-space: nowrap; }
-
         .top-controls { display: flex; gap: 10px; }
 
-        /* Responsive Header for Phones */
         @media (max-width: 600px) {
-            header {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-                padding-bottom: 20px;
-            }
-            .top-controls {
-                width: 100%;
-                justify-content: center;
-            }
+            header { flex-direction: column; align-items: center; text-align: center; padding-bottom: 20px; }
+            .top-controls { width: 100%; justify-content: center; }
             .btn-ui { flex: 1; max-width: 150px; }
         }
 
@@ -66,11 +55,7 @@
         .section.active { display: block; animation: fadeIn 0.4s ease; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        .zikr-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); 
-            gap: 20px; 
-        }
+        .zikr-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; }
 
         .card { 
             background: var(--glass); border-radius: 24px; padding: 25px; 
@@ -157,60 +142,90 @@
 <script>
     const SUNNAH = [
         { 
-            ar: "سُبْحَانَ اللَّهِ وَبِحَمْدِهِ", en: "Subhan-Allahi wa bihamdihi", g: 100, 
-            fadl_ar: "حُطَّتْ خَطَايَاهُ وَإِنْ كَانَتْ مِثْلَ زَبَدِ الْبَحْرِ", fadl_en: "Sins forgiven even if they are like the foam of the sea.", 
+            ar: "سُبْحَانَ اللَّهِ وَبِحَمْدِهِ", 
+            en: "Subhan-Allahi wa bihamdihi", 
+            g: 100, 
+            fadl_ar: "حُطَّتْ خَطَايَاهُ وَإِنْ كَانَتْ مِثْلَ زَبَدِ الْبَحْرِ", 
+            fadl_en: "His sins will be forgiven even if they are as abundant as the foam of the sea.", 
             link: "https://sunnah.com/bukhari:6405" 
         },
         { 
-            ar: "لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ، وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ", en: "La ilaha illallah wahdahu la sharika lahu...", g: 100, 
-            fadl_ar: "عدل عشر رقاب، وكتبت له مئة حسنة، ومحيت عنه مئة سيئة.", fadl_en: "Equal to freeing 10 slaves + 100 rewards.", 
+            ar: "لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ، وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ", 
+            en: "La ilaha illallahu wahdahu la sharika lahu, lahul-mulku wa lahul-hamdu, wa huwa 'ala kulli shay'in qadir", 
+            g: 100, 
+            fadl_ar: "عدل عشر رقاب، وكتبت له مئة حسنة، ومحيت عنه مئة سيئة.", 
+            fadl_en: "Equivalent to freeing ten slaves, 100 good deeds recorded, and 100 sins erased.", 
             link: "https://sunnah.com/bukhari:3293" 
         },
         { 
-            ar: "لَا إِلَهَ إِلَّا أَنْتَ سُبْحَانَكَ إِنِّي كُنْتُ مِنَ الظَّالِمِينَ", en: "La ilaha illa Anta, Subhanaka, inni kuntu minaz-zalimin", g: 100, 
-            fadl_ar: "لم يدع بها رجل مسلم في شيء قط إلا استجاب الله له.", fadl_en: "No Muslim supplicates with it but Allah responds.", 
+            ar: "لَا إِلَهَ إِلَّا أَنْتَ سُبْحَانَكَ إِنِّي كُنْتُ مِنَ الظَّالِمِينَ", 
+            en: "La ilaha illa Anta, Subhanaka, inni kuntu minaz-zalimin", 
+            g: 100, 
+            fadl_ar: "لم يدع بها رجل مسلم في شيء قط إلا استجاب الله له.", 
+            fadl_en: "No Muslim man supplicates with it for anything except that Allah responds to him.", 
             link: "https://sunnah.com/tirmidhi:3505" 
         },
         { 
-            ar: "سُبْحَانَ اللَّهِ الْعَظِيمِ، سُبْحَانَ اللَّهِ وَبِحَمْدِهِ", en: "Subhan-Allahi wa bihamdihi, Subhan-Allahil-Azim", g: 100, 
-            fadl_ar: "ثقيلتان في الميزان حبيبتان إلى الرحمن.", fadl_en: "Heavy in the scale, beloved to the Most Merciful.", 
+            ar: "سُبْحَانَ اللَّهِ الْعَظِيمِ، سُبْحَانَ اللَّهِ وَبِحَمْدِهِ", 
+            en: "Subhan-Allahi wa bihamdihi, Subhan-Allahil-Azim", 
+            g: 100, 
+            fadl_ar: "ثقيلتان في الميزان حبيبتان إلى الرحمن.", 
+            fadl_en: "Two words that are light on the tongue, heavy in the scales, and beloved to the Most Merciful.", 
             link: "https://sunnah.com/bukhari:7563" 
         },
         { 
-            ar: "لَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ", en: "La hawla wa la quwwata illa billah", g: 100, 
-            fadl_ar: "كنز من كنوز الجنة.", fadl_en: "A treasure from the treasures of Paradise.", 
+            ar: "لَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ", 
+            en: "La hawla wa la quwwata illa billah", 
+            g: 100, 
+            fadl_ar: "كنز من كنوز الجنة.", 
+            fadl_en: "A treasure from the treasures of Paradise.", 
             link: "https://sunnah.com/bukhari:4202" 
         },
         { 
-            ar: "أَسْتَغْفِرُ اللَّهَ وَأَتُوبُ إِلَيْهِ", en: "Astaghfirullaha wa atubu ilayh", g: 100, 
-            fadl_ar: "طوبى لمن وجد في صحيفته استغفاراً كثيراً.", fadl_en: "Glad tidings to those who find much seeking of forgiveness.", 
+            ar: "أَسْتَغْفِرُ اللَّهَ وَأَتُوبُ إِلَيْهِ", 
+            en: "Astaghfirullaha wa atubu ilayh", 
+            g: 100, 
+            fadl_ar: "طوبى لمن وجد في صحيفته استغفاراً كثيراً.", 
+            fadl_en: "Glad tidings to those who find in their record much seeking of forgiveness.", 
             link: "https://sunnah.com/ibnmajah:3818" 
         },
         { 
-            ar: "سُبْحَانَ اللَّهِ، وَالْحَمْدُ لِلَّهِ، وَلَا إِلَهَ إِلَّا اللَّهُ، وَاللَّهُ أَكْبَرُ", en: "Subhan-Allah, wal-Hamdu lillah...", g: 100, 
-            fadl_ar: "أحب الكلام إلى الله أربع.", fadl_en: "The four most beloved words to Allah.", 
+            ar: "سُبْحَانَ اللَّهِ، وَالْحَمْدُ لِلَّهِ، وَلَا إِلَهَ إِلَّا اللَّهُ، وَاللَّهُ أَكْبَرُ", 
+            en: "Subhan-Allah, wal-Hamdu lillah, wa la ilaha illallah, wallahu Akbar", 
+            g: 100, 
+            fadl_ar: "أحب الكلام إلى الله أربع.", 
+            fadl_en: "The most beloved words to Allah are these four phrases.", 
             link: "https://sunnah.com/muslim:2137" 
         },
         { 
-            ar: "اللَّهُمَّ صَلِّ وَسَلِّمْ عَلَى نَبِيِّنَا مُحَمَّدٍ", en: "Allahumma salli wa sallim 'ala nabiyyina Muhammad", g: 10, 
-            fadl_ar: "من صلى علي صلاة صلى الله عليه بها عشراً.", fadl_en: "Whoever sends prayers upon me once, Allah sends 10 upon him.", 
+            ar: "اللَّهُمَّ صَلِّ وَسَلِّمْ عَلَى نَبِيِّنَا مُحَمَّدٍ", 
+            en: "Allahumma salli wa sallim 'ala nabiyyina Muhammad", 
+            g: 10, 
+            fadl_ar: "من صلى علي صلاة صلى الله عليه بها عشراً.", 
+            fadl_en: "Whoever sends blessings upon me once, Allah sends blessings upon him ten times.", 
             link: "https://sunnah.com/muslim:408" 
         },
         { 
-            ar: "سُبْحَانَ اللَّهِ وَبِحَمْدِهِ عَدَدَ خَلْقِهِ، وَرِضَا نَفْسِهِ، وَزِنَةَ عَرْشِهِ، وَمِدَادَ كَلِمَاتِهِ", en: "Subhan-Allahi wa bihamdihi, 'adada khalqihi...", g: 3, 
-            fadl_ar: "تعدل في الأجر الذكر الطويل.", fadl_en: "Equivalent in reward to long durations of remembrance.", 
+            ar: "سُبْحَانَ اللَّهِ وَبِحَمْدِهِ عَدَدَ خَلْقِهِ، وَرِضَا نَفْسِهِ، وَزِنَةَ عَرْشِهِ، وَمِدَادَ كَلِمَاتِهِ", 
+            en: "Subhan-Allahi wa bihamdihi, 'adada khalqihi, wa rida nafsihi, wa zinata 'arshihi, wa midada kalimatihi", 
+            g: 3, 
+            fadl_ar: "تعدل في الأجر الذكر الطويل.", 
+            fadl_en: "These words outweigh long periods of other forms of remembrance in reward.", 
             link: "https://sunnah.com/muslim:2726" 
         },
         { 
-            ar: "آية الكرسي", en: "Ayat al-Kursi", g: 1, 
-            fadl_ar: "لم يمنعه من دخول الجنة إلا أن يموت.", fadl_en: "Nothing prevents him from Jannah except death.", 
+            ar: "آية الكرسي", 
+            en: "Ayat al-Kursi (Qur'an 2:255)", 
+            g: 1, 
+            fadl_ar: "لم يمنعه من دخول الجنة إلا أن يموت.", 
+            fadl_en: "Whoever recites it after every prayer, nothing prevents him from entering Paradise except death.", 
             link: "https://sunnah.com/nasai:9848" 
         }
     ];
 
     const UI = {
         ar: { start: "اضغط للبدء", count: "مرات", goal: "الهدف", list: "قائمتي", sug: "اقتراحات", new: "جديد", empty: "قائمتك فارغة", reset: "يوم جديد", added: "تمت الإضافة!", verify: "تحقق من المصدر ↗", confirmReset: "هل تريد تصفير العدادات ليوم جديد؟", confirmDel: "حذف هذا الذكر؟", confirmSingleReset: "هل تريد تصفير هذا العداد فقط؟" },
-        en: { start: "Tap to start", count: "Counts", goal: "Goal", list: "My List", sug: "Suggested", new: "New", empty: "List is empty", reset: "New Day", added: "Added!", verify: "Verify Source ↗", confirmReset: "Clear progress for a new day?", confirmDel: "Delete this Dhikr?" }
+        en: { start: "Tap to start", count: "Counts", goal: "Goal", list: "My List", sug: "Suggested", new: "New", empty: "List is empty", reset: "New Day", added: "Added!", verify: "Verify Source ↗", confirmReset: "Clear progress for a new day?", confirmDel: "Delete this Dhikr?", confirmSingleReset: "Reset this counter only?" }
     };
 
     let state = {
